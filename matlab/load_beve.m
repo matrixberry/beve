@@ -193,7 +193,8 @@ function data = read_complex(fid)
             is_signed = true;
     end
 
-    byte_count_index = bitshift(bitand(header, 0b11100000), -5);
+    byte_count_index = bitshift(bitand(complex_header, 0b11100000), -5);
+    config = uint8([1, 2, 4, 8]);
     byte_count = config(byte_count_index + 1);
 
     switch type
